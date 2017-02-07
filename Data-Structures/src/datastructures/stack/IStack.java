@@ -9,6 +9,11 @@ package datastructures.stack;
  *
  * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
  */
-public class Stack {
+public interface IStack<T> {
     
+    T pop();
+    T peek();
+        
+    void push(T item);
+   
 }
