@@ -13,11 +13,16 @@ import datastructures.stack.IStack;
 
 /**
  *
- * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
+ * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>\
+ * 
  */
-public class Stack<Item> 
+public class Stack<Item extends Object> 
         implements Iterable<Item>, 
         IStack<Item>{
+    
+    private Item[] stack_space;
+    private int size;
+    private int top;
 
     @Override
     public Iterator iterator() {
@@ -31,14 +36,30 @@ public class Stack<Item>
 
     @Override
     public Item peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return stack_space[top];
     }
 
     @Override
     public void push(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isFull()) {
+            
+        }
+        stack_space[++top] = item;
     }
-
+    
+    public boolean isEmpty() {
+        return (top == -1);
+    }
+    
+    public boolean isFull() {
+        return (top == size - 1);
+    }
+    
+    public Stack(int size) {
+        this.stack_space = (Item[]) new Object[size];
+        this.size = size;        
+        this.top = -1;
+    }
     
     
 }
