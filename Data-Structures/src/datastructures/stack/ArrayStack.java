@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class ArrayStack<Item extends Object> implements Stack<Item>{
     
     private Item[] stack_space;
-    private final int size;
+    private int size;
     private int top;
 
     @Override
@@ -52,7 +52,7 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         return (top == -1);
     }
     
-    public boolean isFull() {
+    private boolean isFull() {
         return (top == size - 1);
     }
     
@@ -60,6 +60,7 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         Item[] item = (Item[]) new Object[size * 2];
         System.arraycopy(stack_space, 0, item, 0, size);
         stack_space = item;
+        size = size * 2; 
     }
     
     public ArrayStack(int size) {
