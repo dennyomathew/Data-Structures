@@ -6,11 +6,6 @@
 package datastructures.stack;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Spliterator;
-import java.util.function.Consumer;
-import datastructures.stack.Stack;
-
 /**
  *
  * @author Denny Oommen Mathew <denny@dennymathew.com>\
@@ -20,12 +15,12 @@ import datastructures.stack.Stack;
 public class ArrayStack<Item extends Object> implements Stack<Item>{
     
     private Item[] stack_space;
-    private int size;
+    private final int size;
     private int top;
 
     @Override
-    public Iterator iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Iterator<Item> iterator() {
+        return new ArrayStackIterator();
     }
 
     @Override
@@ -71,6 +66,24 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         this.stack_space = (Item[]) new Object[size];
         this.size = size;        
         this.top = -1;
+    }
+
+    private class ArrayStackIterator implements Iterator<Item>{
+
+        private int ptr = top;
+        
+        public ArrayStackIterator() {
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (ptr >- 1);
+        }
+
+        @Override
+        public Item next() {
+            return stack_space[ptr--];
+        }
     }
     
     
