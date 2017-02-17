@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastructures.stack.arraystack;
+package datastructures.stack;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
-import datastructures.stack.IStack;
+import datastructures.stack.Stack;
 
 /**
  *
  * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>\
  * 
  */
-public class Stack<Item extends Object> 
+public class ArrayStack<Item extends Object> 
         implements Iterable<Item>, 
-        IStack<Item>{
+        Stack<Item>{
     
     private Item[] stack_space;
     private int size;
@@ -55,7 +55,15 @@ public class Stack<Item extends Object>
         return (top == size - 1);
     }
     
-    public Stack(int size) {
+    public void inflate() {
+        Item[] item = (Item[]) new Object[size * 2];
+        for(int i=0;i<size; i++) {
+            item[i] = stack_space[i];
+        }
+        stack_space = item;
+    }
+    
+    public ArrayStack(int size) {
         this.stack_space = (Item[]) new Object[size];
         this.size = size;        
         this.top = -1;
