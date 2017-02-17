@@ -13,12 +13,11 @@ import datastructures.stack.Stack;
 
 /**
  *
- * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>\
+ * @author Denny Oommen Mathew <denny@dennymathew.com>\
  * 
+ * @param <Item> 
  */
-public class ArrayStack<Item extends Object> 
-        implements Iterable<Item>, 
-        Stack<Item>{
+public class ArrayStack<Item extends Object> implements Stack<Item>{
     
     private Item[] stack_space;
     private int size;
@@ -31,7 +30,13 @@ public class ArrayStack<Item extends Object>
 
     @Override
     public Item pop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isEmpty()) {
+            return null;
+        }
+  
+        Item item = stack_space[top];
+        stack_space[top--] = null;
+        return item;
     }
 
     @Override
@@ -42,11 +47,12 @@ public class ArrayStack<Item extends Object>
     @Override
     public void push(Item item) {
         if(isFull()) {
-            
+            inflate();
         }
         stack_space[++top] = item;
     }
     
+    @Override
     public boolean isEmpty() {
         return (top == -1);
     }
@@ -55,11 +61,9 @@ public class ArrayStack<Item extends Object>
         return (top == size - 1);
     }
     
-    public void inflate() {
+    private void inflate() {
         Item[] item = (Item[]) new Object[size * 2];
-        for(int i=0;i<size; i++) {
-            item[i] = stack_space[i];
-        }
+        System.arraycopy(stack_space, 0, item, 0, size);
         stack_space = item;
     }
     

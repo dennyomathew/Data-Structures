@@ -9,12 +9,12 @@ package datastructures.stack;
  *
  * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
  */
-public interface Stack<T> {
+public interface Stack<Item> extends Iterable<Item> {
     
-    T pop();
-    T peek();
+    Item pop();
+    Item peek();
         
-    void push(T item);
+    void push(Item item);
     
     boolean isEmpty();
     
