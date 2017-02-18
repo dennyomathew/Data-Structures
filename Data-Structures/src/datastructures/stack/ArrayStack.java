@@ -8,7 +8,7 @@ package datastructures.stack;
 import java.util.Iterator;
 /**
  *
- * @author Denny Oommen Mathew <denny@dennymathew.com>\
+ * @author Denny Oommen Mathew <denny@dennymathew.com>
  * 
  * @param <Item> 
  */

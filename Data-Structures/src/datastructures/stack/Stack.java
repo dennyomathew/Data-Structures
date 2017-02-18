@@ -7,7 +7,7 @@ package datastructures.stack;
 
 /**
  *
- * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
+ * @author Denny Oommen Mathew <denny@dennymathew.com>
  * @param <Item>
  */
 public interface Stack<Item> extends Iterable<Item> {
