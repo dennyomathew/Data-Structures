@@ -17,6 +17,8 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
     private Item[] stack_space;
     private int size;
     private int top;
+    
+    private final static int SIZE = 10;
 
     @Override
     public Iterator<Item> iterator() {
@@ -67,6 +69,10 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         this.stack_space = (Item[]) new Object[size];
         this.size = size;        
         this.top = -1;
+    }
+    
+    public ArrayStack() {
+        this(SIZE);
     }
 
     private class ArrayStackIterator implements Iterator<Item>{
