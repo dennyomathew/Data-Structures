@@ -5,6 +5,9 @@
  */
 package datastructures;
 
+import datastructures.linkedlist.List;
+import datastructures.linkedlist.SinglyLinkedList;
+
 /**
  *
  * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
@@ -16,6 +19,15 @@ public class DataStructures {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        /*
+        List<Integer> j = new SinglyLinkedList<>();
+        j.insert(1);
+        j.insert(2);
+        j.insert(4);
+
+        j.traverse();
+        */
+        
     }
     
 }
