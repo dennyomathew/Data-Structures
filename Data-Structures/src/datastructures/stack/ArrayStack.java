@@ -25,6 +25,7 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         return new ArrayStackIterator();
     }
 
+    //O(1)
     @Override
     public Item pop() {
         if(isEmpty()) {
@@ -33,22 +34,31 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
   
         Item item = stack_space[top];
         stack_space[top--] = null;
+        
+        //Optimal shrinking solution
+        if(top > 0 && top == stack_space.length / 4 ) {
+            resize(stack_space.length / 4);
+        }
+        
         return item;
     }
 
+    //O(1)
     @Override
     public Item peek() {
         return stack_space[top];
     }
 
+    //Amortized O(1)
     @Override
     public void push(Item item) {
         if(isFull()) {
-            inflate();
+            resize(2*stack_space.length);
         }
         stack_space[++top] = item;
     }
     
+    //O(1)
     @Override
     public boolean isEmpty() {
         return (top == -1);
@@ -58,11 +68,12 @@ public class ArrayStack<Item extends Object> implements Stack<Item>{
         return (top == size - 1);
     }
     
-    private void inflate() {
-        Item[] item = (Item[]) new Object[size * 2];
+    //O(N)
+    private void resize(int capacity) {
+        Item[] item = (Item[]) new Object[capacity];
         System.arraycopy(stack_space, 0, item, 0, size);
         stack_space = item;
-        size = size * 2; 
+        size = capacity;
     }
     
     public ArrayStack(int size) {
