@@ -5,6 +5,7 @@
  */
 package datastructures;
 
+import datastructures.app.DijkstraExpEvaluator;
 import datastructures.linkedlist.List;
 import datastructures.linkedlist.SinglyLinkedList;
 
@@ -26,8 +27,11 @@ public class DataStructures {
         j.insert(4);
 
         j.traverse();
-        */
+
         
+        DijkstraExpEvaluator eval = new DijkstraExpEvaluator();
+        eval.evaluateExp("( 2 + 3 )");
+        eval.printResults();        */
     }
     
 }
