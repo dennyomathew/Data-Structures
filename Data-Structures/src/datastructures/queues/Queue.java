@@ -7,17 +7,14 @@ package datastructures.queues;
 
 /**
  *
- * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
+ * @author Denny Oommen Mathew <denny@dennymathew.com>
  */
 public interface Queue<Item> {
     
-    /* Exception versions */
+
     void add(Item item);    // Enqueue
     Item remove();          // Dequeue
     Item element();         // peek
     
-    /* Return only equivalents */
-    void offer(Item item);
-    void poll();
-    Item peek();
+    boolean isEmpty();
 }

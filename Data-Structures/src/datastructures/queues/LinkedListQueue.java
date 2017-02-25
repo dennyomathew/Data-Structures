@@ -7,7 +7,7 @@ package datastructures.queues;
 
 /**
  *
- * @author Denny Oommen Mathew <denny.oommen.mathew@hp.com>
+ * @author Denny Oommen Mathew <denny@dennymathew.com>
  */
 public class LinkedListQueue<Item> implements Queue<Item> {
 
@@ -21,33 +21,39 @@ public class LinkedListQueue<Item> implements Queue<Item> {
 
     @Override
     public void add(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          if(tail == null) {
+            tail = new Node();
+            head = tail;
+        } else {
+            Node oldTail = tail; 
+            tail = new Node();
+            tail.next = oldTail;
+        }
     }
 
     @Override
     public Item remove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isEmpty()) {
+            return null;
+        } else {
+            Node oldNode = head;
+            head = head.next;
+            return oldNode.item;    
+        }
     }
 
     @Override
     public Item element() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return head.item;
     }
     
+    @Override
+    public boolean isEmpty() {
+      return tail==null;
+    }
     
-    @Override
-    public void offer(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void poll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Item peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public LinkedListQueue() {
+        head = tail = null;
     }
     
 }
