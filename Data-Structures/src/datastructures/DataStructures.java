@@ -8,8 +8,10 @@ package datastructures;
 import datastructures.app.DijkstraExpEvaluator;
 import datastructures.linkedlist.List;
 import datastructures.linkedlist.SinglyLinkedList;
+import datastructures.queues.Queue;
+import datastructures.queues.LinkedListQueue;
 
-import java.util.*;
+//import java.util.*;
 
 /**
  *
@@ -33,10 +35,16 @@ public class DataStructures {
         
         DijkstraExpEvaluator eval = new DijkstraExpEvaluator();
         eval.evaluateExp("( 2 + 3 )");
-        eval.printResults();        */
+        eval.printResults();       
 
+        Queue<Integer> q = new LinkedListQueue<>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
         
-        
+        System.out.println(q.remove());
+        System.out.println("peek" + q.element());
+        System.out.println(q.remove()); */
         
         
     }

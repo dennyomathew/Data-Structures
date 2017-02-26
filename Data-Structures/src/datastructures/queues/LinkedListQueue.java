@@ -21,13 +21,17 @@ public class LinkedListQueue<Item> implements Queue<Item> {
 
     @Override
     public void add(Item item) {
-          if(tail == null) {
+        if(tail == null) {
             tail = new Node();
+            tail.item = item;
+            tail.next = null;
             head = tail;
         } else {
             Node oldTail = tail; 
             tail = new Node();
-            tail.next = oldTail;
+            tail.item = item;
+            tail.next = null;
+            oldTail.next = tail;
         }
     }
 
