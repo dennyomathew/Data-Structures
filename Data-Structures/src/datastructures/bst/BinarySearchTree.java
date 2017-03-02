@@ -9,9 +9,9 @@ package datastructures.bst;
  *
  * @author Denny Oommen Mathew <denny@dennymathew.com>
  */
-public class BinarySearchTree<Item extends Comparable> implements Tree<Item> {
+public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Item> {
     
-    private Node root;
+    private Node<Item> root;
 
     @Override
     public void insert(Item item) {
@@ -22,7 +22,7 @@ public class BinarySearchTree<Item extends Comparable> implements Tree<Item> {
         }
     }
     
-    private void insertNode(Node node, Item item) {
+    private void insertNode(Node<Item> node, Item item) {
         if(item.compareTo(node.getItem()) < 0 ) {
             if( node.getLeftNode() != null ) {
                 insertNode(node.getLeftNode(), item);
@@ -49,5 +49,25 @@ public class BinarySearchTree<Item extends Comparable> implements Tree<Item> {
     public void traverse() {
   
     }
+
+    @Override
+    public Item getMin(Node<Item> node) {
+       if(node.getLeftNode() != null) {
+           return getMin(node.getLeftNode());
+       }
+      
+       return node.getItem();       
+    }
+
+    @Override
+    public Item getMax(Node<Item> node) {
+       if(node.getRightNode() != null) {
+           return getMax(node.getRightNode());
+       }
+      
+       return node.getItem();      
+    }
+
+
     
 }

@@ -12,22 +12,22 @@ package datastructures.bst;
 public class Node<Item> {
     
     private Item item;    
-    private Node leftNode;
-    private Node rightNode;
+    private Node<Item> leftNode;
+    private Node<Item> rightNode;
 
-    public Node getLeftNode() {
+    public Node<Item> getLeftNode() {
         return leftNode;
     }
 
-    public void setLeftNode(Node leftNode) {
+    public void setLeftNode(Node<Item> leftNode) {
         this.leftNode = leftNode;
     }
 
-    public Node getRightNode() {
+    public Node<Item> getRightNode() {
         return rightNode;
     }
 
-    public void setRightNode(Node rightNode) {
+    public void setRightNode(Node<Item> rightNode) {
         this.rightNode = rightNode;
     }
     

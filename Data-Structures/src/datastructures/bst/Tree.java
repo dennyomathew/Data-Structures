@@ -16,4 +16,7 @@ public interface Tree<Item> {
     
     public void traverse();
     
+    public Item getMax(Node<Item> node);
+    public Item getMin(Node<Item> node);
+    
 }
