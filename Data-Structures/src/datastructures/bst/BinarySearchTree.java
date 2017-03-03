@@ -50,8 +50,7 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
   
     }
 
-    @Override
-    public Item getMin(Node<Item> node) {
+    private Item getMin(Node<Item> node) {
        if(node.getLeftNode() != null) {
            return getMin(node.getLeftNode());
        }
@@ -59,13 +58,22 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
        return node.getItem();       
     }
 
-    @Override
-    public Item getMax(Node<Item> node) {
+    private Item getMax(Node<Item> node) {
        if(node.getRightNode() != null) {
            return getMax(node.getRightNode());
        }
       
        return node.getItem();      
+    }
+
+    @Override
+    public Item getMax() {
+       return getMax(root);
+    }
+
+    @Override
+    public Item getMin() {
+       return getMin(root);
     }
 
 

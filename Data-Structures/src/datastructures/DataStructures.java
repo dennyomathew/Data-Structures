@@ -6,6 +6,8 @@
 package datastructures;
 
 import datastructures.app.DijkstraExpEvaluator;
+import datastructures.bst.BinarySearchTree;
+import datastructures.bst.Tree;
 import datastructures.linkedlist.List;
 import datastructures.linkedlist.SinglyLinkedList;
 import datastructures.queues.Queue;
@@ -44,7 +46,16 @@ public class DataStructures {
         
         System.out.println(q.remove());
         System.out.println("peek" + q.element());
-        System.out.println(q.remove()); */
+        System.out.println(q.remove()); 
+        
+        Tree<Integer> bst = new BinarySearchTree<>();
+        
+        bst.insert(5);
+        bst.insert(3);
+        bst.insert(6);
+        
+        System.out.println(bst.getMax());*/
+        
         
         
     }
