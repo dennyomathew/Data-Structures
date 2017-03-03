@@ -19,7 +19,7 @@ public class LinkedListStack<Item extends Object> implements Stack<Item> {
 
     private class LinkedListStackIterator implements Iterator<Item> {
 
-        private Node top = head;
+        private Node<Item> top = head;
         private int lsize = size;
         public LinkedListStackIterator() {
         }
@@ -38,12 +38,12 @@ public class LinkedListStack<Item extends Object> implements Stack<Item> {
         }
     }
         
-    private class Node {
+    private class Node<Item> {
         Item item;
-        Node next;
+        Node<Item> next;
     }
     
-    private Node head = null;
+    private Node<Item> head = null;
 
     @Override
     public Item pop() {
@@ -63,7 +63,7 @@ public class LinkedListStack<Item extends Object> implements Stack<Item> {
 
     @Override
     public void push(Item item) {
-       Node newItem = new Node();
+       Node<Item> newItem = new Node();
        newItem.item = item;
        newItem.next = head;
        size++;

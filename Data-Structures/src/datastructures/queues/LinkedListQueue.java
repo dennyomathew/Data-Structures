@@ -11,26 +11,23 @@ package datastructures.queues;
  */
 public class LinkedListQueue<Item> implements Queue<Item> {
 
-    private class Node {
+    private class Node<Item> {
         Item item;
-        Node next;
+        Node<Item> next;
     }
     
-    private Node head;
-    private Node tail;
+    private Node<Item> head;
+    private Node<Item> tail;
 
     @Override
     public void add(Item item) {
+        tail = new Node();
         if(tail == null) {
-            tail = new Node();
             tail.item = item;
-            tail.next = null;
             head = tail;
         } else {
-            Node oldTail = tail; 
-            tail = new Node();
+            Node<Item> oldTail = tail; 
             tail.item = item;
-            tail.next = null;
             oldTail.next = tail;
         }
     }
@@ -40,7 +37,7 @@ public class LinkedListQueue<Item> implements Queue<Item> {
         if(isEmpty()) {
             return null;
         } else {
-            Node oldNode = head;
+            Node<Item> oldNode = head;
             head = head.next;
             return oldNode.item;    
         }
@@ -57,7 +54,6 @@ public class LinkedListQueue<Item> implements Queue<Item> {
     }
     
     public LinkedListQueue() {
-        head = tail = null;
     }
     
 }

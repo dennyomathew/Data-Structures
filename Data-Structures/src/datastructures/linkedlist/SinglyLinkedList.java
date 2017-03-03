@@ -11,12 +11,12 @@ package datastructures.linkedlist;
  */
 public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Item>{
     
-    private class Node {
+    private class Node<Item> {
         Item item;
-        Node next;
+        Node<Item> next;
     }
     
-    private Node head = null;
+    private Node<Item> head;
     private int size = 0;
 
     @Override
@@ -24,9 +24,8 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
         if(head == null) {
             head = new Node();
             head.item = item;
-            head.next = null;
         } else {
-            Node newNode = new Node();
+            Node<Item> newNode = new Node();
             newNode.item = item;
             newNode.next = head;
             head = newNode;
@@ -37,7 +36,7 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
     @Override
     public void remove(int index) {
         if(index <= size - 1) {
-           Node node = head;
+           Node<Item> node = head;
            if(index == 0) {
               head = head.next;
               node = null;
@@ -47,7 +46,7 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
                 node = node.next;               
                 i++;
               }
-              Node delNode = node.next;
+              Node<Item> delNode = node.next;
               node.next = node.next.next;
               delNode = null;
            }
@@ -55,7 +54,7 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
         }      
     }
     
-    private void remove(Item item, Node prevNode, Node actualNode){
+    private void remove(Item item, Node<Item> prevNode, Node<Item> actualNode){
         
         while(actualNode != null) {
             if(actualNode.item.compareTo(item) == 0 ){
