@@ -12,3 +12,6 @@
 hs_err_pid*
 /Data-Structures/nbproject/private/
 /Data-Structures/dist/
+
+# build properties #
+*.properties
