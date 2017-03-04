@@ -47,7 +47,14 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
 
     @Override
     public void traverse() {
-  
+        inOrderTraversal(root);
+    }
+    
+    private void inOrderTraversal(Node<Item> node) {
+        if(node == null) return;   // base case
+        inOrderTraversal(node.getLeftNode());
+        System.out.print(node);
+        inOrderTraversal(node.getRightNode());      
     }
 
     private Item getMin(Node<Item> node) {
