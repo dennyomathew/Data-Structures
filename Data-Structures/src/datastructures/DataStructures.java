@@ -46,7 +46,7 @@ public class DataStructures {
         
         System.out.println(q.remove());
         System.out.println("peek" + q.element());
-        System.out.println(q.remove()); 
+        System.out.println(q.remove());
         
         Tree<Integer> bst = new BinarySearchTree<>();
         
@@ -54,8 +54,10 @@ public class DataStructures {
         bst.insert(3);
         bst.insert(6);
         
-        System.out.println(bst.getMax());*/
+        bst.delete(5);
         
+        System.out.println(bst.getMax()); */
+     
         
         
     }

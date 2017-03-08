@@ -42,8 +42,40 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
 
     @Override
     public void delete(Item item) {
-   
+        deleteNode(root, item);
     }
+    
+    private Node<Item> deleteNode(Node<Item> node, Item data) {
+        if(node == null) return node;
+        
+        if( data.compareTo(node.getItem()) < 0) {            
+            node.setLeftNode(deleteNode(node.getLeftNode(), data));
+        } else if( data.compareTo(node.getItem()) > 0) {
+            node.setRightNode(deleteNode(node.getRightNode(), data));
+        } else {
+            /* We have the item */
+           if(node.getLeftNode() == null && node.getRightNode() == null) {
+               return null;
+           } 
+           if(node.getLeftNode() == null) {
+               Node<Item> temp = node.getRightNode();
+               node = null;
+               return temp;
+           }
+           if(node.getRightNode() == null) {
+               Node<Item> temp = node.getLeftNode();
+               node = null;
+               return temp;
+           }
+           
+           Node<Item> temp = getPredecessor(node.getLeftNode());
+           
+           node.setItem(temp.getItem());  //Swap predecessor with the node
+           node.setLeftNode(deleteNode(node.getLeftNode(), temp.getItem()));
+           
+        }
+      return node;
+    }   
 
     @Override
     public void traverse() {
@@ -64,10 +96,17 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
       
        return node.getItem();       
     }
+    
+    private Node<Item> getPredecessor(Node<Item> node) {
+        if(node.getRightNode()!= null ) {
+            return getPredecessor(node.getRightNode());
+        }
+        return node;
+    }
 
     private Item getMax(Node<Item> node) {
        if(node.getRightNode() != null) {
-           return getMax(node.getRightNode());
+          return getMax(node.getRightNode());
        }
       
        return node.getItem();      
