@@ -42,7 +42,9 @@ public class BinarySearchTree<Item extends Comparable<Item>> implements Tree<Ite
 
     @Override
     public void delete(Item item) {
-        deleteNode(root, item);
+        if(root != null) {
+            root = deleteNode(root, item);
+        }
     }
     
     private Node<Item> deleteNode(Node<Item> node, Item data) {
