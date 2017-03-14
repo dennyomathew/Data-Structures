@@ -62,7 +62,7 @@ public class DataStructures {
         
         bst.delete(5);
         
-        System.out.println(bst.getMax());  */
+        System.out.println(bst.getMax());  
         
         Vertex<Integer> v1 = new Vertex(1);
         Vertex<Integer> v2 = new Vertex(2);
@@ -77,7 +77,7 @@ public class DataStructures {
         v4.addVertex(v5);
         
         BFS bfs = new BFS(v1);
-        bfs.traverse();
+        bfs.traverse(); */
      
         
         
