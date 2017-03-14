@@ -8,6 +8,8 @@ package datastructures;
 import datastructures.app.DijkstraExpEvaluator;
 import datastructures.bst.BinarySearchTree;
 import datastructures.bst.Tree;
+import datastructures.graphs.bfs.BFS;
+import datastructures.graphs.bfs.Vertex;
 import datastructures.linkedlist.List;
 import datastructures.linkedlist.SinglyLinkedList;
 import datastructures.queues.Queue;
@@ -61,6 +63,21 @@ public class DataStructures {
         bst.delete(5);
         
         System.out.println(bst.getMax());  */
+        
+        Vertex<Integer> v1 = new Vertex(1);
+        Vertex<Integer> v2 = new Vertex(2);
+        Vertex<Integer> v3 = new Vertex(3);
+        Vertex<Integer> v4 = new Vertex(4);
+        Vertex<Integer> v5 = new Vertex(5);
+        
+        v1.addVertex(v2);
+        v1.addVertex(v4);
+        
+        v2.addVertex(v3);
+        v4.addVertex(v5);
+        
+        BFS bfs = new BFS(v1);
+        bfs.traverse();
      
         
         

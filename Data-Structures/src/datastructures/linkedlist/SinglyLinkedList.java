@@ -5,12 +5,14 @@
  */
 package datastructures.linkedlist;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Denny Oommen Mathew <denny@dennymathew.com>
  */
 public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Item>{
-    
+
     private class Node<Item> {
         Item item;
         Node<Item> next;
@@ -18,6 +20,26 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
     
     private Node<Item> head;
     private int size = 0;
+    
+    
+    private class LinkedListIterator implements Iterator<Item> {
+
+        private Node<Item> top = head;
+        public LinkedListIterator() {
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (top!=null);
+        }
+
+        @Override
+        public Item next() {
+            Item item = top.item;
+            top = top.next;
+            return item;
+        }
+    }
 
     @Override
     public void insert(Item item) {
@@ -32,6 +54,23 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
         }
         this.size++;
     }
+    
+    @Override
+    public void insertAtEnd(Item item) {
+        Node temp = head;
+        Node newNode = new Node();
+        newNode.item = item;
+        
+        if( temp != null ) {
+            while(temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        } else {
+            head = newNode;
+        }
+    }
+    
 
     @Override
     public void remove(int index) {
@@ -102,6 +141,11 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
             System.out.println(node.item.toString());
             node = node.next;
         }
+    }
+    
+        @Override
+    public Iterator<Item> iterator() {
+        return new LinkedListIterator();
     }
     
 }

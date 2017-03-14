@@ -10,9 +10,10 @@ package datastructures.linkedlist;
  * @author Denny Oommen Mathew <denny@dennymathew.com>
  * @param <T>
  */
-public interface List<Item> extends Comparable<Item> {
+public interface List<Item> extends Comparable<Item>, Iterable<Item> {
 
     void insert(Item item);
+    void insertAtEnd(Item item);
     void remove(int index);
     void remove(Item item);
     

@@ -21,12 +21,13 @@ public class LinkedListQueue<Item> implements Queue<Item> {
 
     @Override
     public void add(Item item) {
-        tail = new Node();
         if(tail == null) {
+            tail = new Node();
             tail.item = item;
             head = tail;
         } else {
             Node<Item> oldTail = tail; 
+            tail = new Node();
             tail.item = item;
             oldTail.next = tail;
         }
@@ -34,12 +35,18 @@ public class LinkedListQueue<Item> implements Queue<Item> {
 
     @Override
     public Item remove() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             return null;
         } else {
             Node<Item> oldNode = head;
-            head = head.next;
-            return oldNode.item;    
+            if (head != tail) {
+                head = head.next;
+            } else {
+                head = tail = null;  //It indicates that the Q has only one item
+            }
+            Item item = oldNode.item;
+            oldNode = null;   //For GC
+            return item;
         }
     }
 
