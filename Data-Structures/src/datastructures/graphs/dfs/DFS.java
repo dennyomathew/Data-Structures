@@ -29,8 +29,7 @@ public class DFS<Item> {
                 v.setVisted(true);
                 dfsUsingStack(v);
             }            
-        }
-        
+        }        
     }
     
     private void dfsUsingStack(Vertex<Item> root) {
@@ -46,12 +45,9 @@ public class DFS<Item> {
                 if(!ne.isVisted()) {
                     ne.setVisted(true);
                     vertices.push(ne);
-                }
-                
-            }
-            
-        }
-        
+                }                
+            }            
+        }       
         
     }
     
