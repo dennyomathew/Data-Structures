@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastructures.graphs.bfs;
+package datastructures.graphs;
 
 import datastructures.linkedlist.List;
-import datastructures.linkedlist.SinglyLinkedList;
+import datastructures.linkedlist.singly.LinkedList;
 
 /**
  *
@@ -20,7 +20,7 @@ public class Vertex<Item> implements Comparable<Item> {
     
     public Vertex(Item data) {
         this.data = data;
-        this.neighbourVertices = new SinglyLinkedList<>();
+        this.neighbourVertices = new LinkedList<>();
         this.isVisted = false;
     }
     

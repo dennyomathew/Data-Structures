@@ -5,6 +5,7 @@
  */
 package datastructures.graphs.bfs;
 
+import datastructures.graphs.Vertex;
 import datastructures.queues.LinkedListQueue;
 import datastructures.queues.Queue;
 

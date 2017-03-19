@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastructures.linkedlist;
+package datastructures.linkedlist.singly;
 
+import datastructures.linkedlist.List;
 import java.util.Iterator;
 
 /**
  *
  * @author Denny Oommen Mathew <denny@dennymathew.com>
  */
-public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Item>{
+public class LinkedList<Item extends Comparable<Item>> implements List<Item>{
 
     private class Node<Item> {
         Item item;
@@ -120,7 +121,7 @@ public class SinglyLinkedList<Item extends Comparable<Item>> implements List<Ite
     }
 
     
-    public SinglyLinkedList() {
+    public LinkedList() {
         size = 0;
     }
     
