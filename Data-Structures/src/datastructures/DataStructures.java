@@ -11,6 +11,7 @@ import datastructures.bst.Tree;
 import datastructures.graphs.bfs.BFS;
 import datastructures.graphs.Vertex;
 import datastructures.graphs.dfs.DFS;
+import datastructures.graphs.dfs.DFS.DFS_MODE;
 import datastructures.linkedlist.List;
 import datastructures.linkedlist.singly.LinkedList;
 import datastructures.queues.Queue;
@@ -78,7 +79,7 @@ public class DataStructures {
         v4.addVertex(v5);
         
         BFS bfs = new BFS(v1);
-        bfs.traverse(); 
+        bfs.traverse();  */
         
         Vertex<Integer> v1 = new Vertex(1);
         Vertex<Integer> v2 = new Vertex(2);
@@ -99,7 +100,7 @@ public class DataStructures {
         vlist.insertAtEnd(v5);
         
         DFS dfs = new DFS();
-        dfs.traverse(vlist); */
+        dfs.traverse(vlist, DFS_MODE.RECURSIVE);
         
         
     }
